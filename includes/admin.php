@@ -28,6 +28,12 @@ class DEFIS_Admin {
 		add_action( 'admin_init', array( $this, 'init_settings' ) );
 	}
 
+	/**
+	 * Initialize the settings sections and fields
+	 * Should be called on admin_init
+	 *
+	 * @since 1.0
+	 */
 	public function init_settings() {
 		add_settings_section( 'defis-default-image-settings', __( 'Default Image Settings', 'defis' ), NULL, 'media' );
 
@@ -36,6 +42,11 @@ class DEFIS_Admin {
 		add_settings_field( 'defis-image-default-align', __( 'Default Align', 'defis' ), array( $this, 'settings_field_image_default_align' ), 'media', 'defis-default-image-settings' );
 	}
 
+	/**
+	 * Display callback for the default image size settings field
+	 *
+	 * @since 1.0
+	 */
 	public function settings_field_image_default_size() {
 		global $_wp_additional_image_sizes;
 
@@ -99,6 +110,11 @@ class DEFIS_Admin {
 		<?php
 	}
 
+	/**
+	 * Display callback for the default image link type settings field
+	 *
+	 * @since 1.0
+	 */
 	public function settings_field_image_default_link_type() {
 		$options = array(
 			'file' => __( 'Media File' ),
@@ -118,6 +134,11 @@ class DEFIS_Admin {
 		<?php
 	}
 
+	/**
+	 * Display callback for the default image alignment settings field
+	 *
+	 * @since 1.0
+	 */
 	public function settings_field_image_default_align() {
 		$options = array(
 			'left' => __( 'Left' ),
